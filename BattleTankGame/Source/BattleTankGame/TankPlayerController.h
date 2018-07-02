@@ -7,7 +7,6 @@
 #include "Tank.h"
 #include "TankPlayerController.generated.h" //Must be last include
 
-
 /**
  * 
  */
@@ -15,11 +14,13 @@ UCLASS()
 class BATTLETANKGAME_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-	
 public:
 	ATank* GetControlledTank() const;
 	
 	void BeginPlay() override;
-	
+
+	virtual void Tick(float DeltaTime) override;
+private:
+	void AimTowardsCrosshair();
 	
 };
