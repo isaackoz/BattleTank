@@ -20,4 +20,5 @@ public:
 
 private:
 	void BeginPlay() override;
+	float AcceptanceRadius = 3000;
 };
