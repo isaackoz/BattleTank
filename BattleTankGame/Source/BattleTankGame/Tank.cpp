@@ -2,6 +2,7 @@
 #include "Tank.h"
 #include "Engine/World.h"
 #include "TankBarrel.h"
+#include "TankMovementComponent.h"
 #include "Projectile.h"
 
 
