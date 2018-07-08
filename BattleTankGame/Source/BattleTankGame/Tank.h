@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// dont make nukes with  this code
 
 #pragma once
 
@@ -20,19 +20,13 @@ class BATTLETANKGAME_API ATank : public APawn
 	// Sets default values for this pawn's propertie
 
 protected:
-
+	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent * TankAimingComponent = nullptr;
 	UPROPERTY(BlueprintReadOnly)
 	UTankMovementComponent * TankMovementComponent = nullptr;
 
 public:
 	void AimAt(FVector HitLocation);
-
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetTurretReference(UTankTurret* TurretToSet);
 
 	UFUNCTION(BlueprintCallable, Category = Firing)
 	void Fire();
@@ -41,10 +35,8 @@ public:
 
 private:
 	ATank();
-	virtual void BeginPlay() override;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	virtual void BeginPlay() override;
 
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float LaunchSpeed = 10000; //TODO find good speed
@@ -52,10 +44,9 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
-	UTankBarrel* Barrel = nullptr;
-
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float ReloadTimeInSeconds = 3;
+	UTankBarrel* Barrel = nullptr; //TODO remove
 
 	double LastFireTime = 0;
 };
