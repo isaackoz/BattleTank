@@ -23,7 +23,8 @@ void UTankMovementComponent::IntendMoveForward(float Throw)
 void UTankMovementComponent::IntendTurnRight(float Throw)
 {
 	//UE_LOG(logTemp,warning, )
-	if (!ensure(LeftTrack || RightTrack)) { return; }
+	if (!ensure(LeftTrack)) { return; }
+	if (!ensure(RightTrack)) { return; }
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(-Throw);
 }
