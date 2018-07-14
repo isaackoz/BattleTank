@@ -36,5 +36,5 @@ private:
 	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
 
 	UPROPERTY(EditDefaultsOnly)
-	int LineTraceRange = 1000000;
+	int32 LineTraceRange = 1000000;
 };
